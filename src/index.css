@@ -1,0 +1,25 @@
+@import "tailwindcss";
+*{
+  margin: 0px;
+  padding: 0px;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  background-color: rgb(153, 186, 222);
+  padding: 10px;
+  padding-left: 900px;
+  color: rgb(207, 84, 84);
+}
+
+.links a {
+  color: rgb(147, 24, 24);
+  margin-left: 15px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.links a:hover {
+  text-decoration: underline;
+}
