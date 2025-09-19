@@ -1,16 +1,15 @@
 @import "tailwindcss";
-*{
+/* *{
   margin: 0px;
   padding: 0px;
-}
+} */
 
 .navbar {
   display: flex;
-  align-items: center;
-  background-color: rgb(153, 186, 222);
+  background: white;
   padding: 10px;
-  padding-left: 900px;
-  color: rgb(207, 84, 84);
+  padding-left: 1100px;
+  color: rgb(207, 191, 84);
 }
 
 .links a {

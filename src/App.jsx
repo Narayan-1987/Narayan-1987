@@ -6,7 +6,9 @@ function App() {
   return (
     <>
      <Navbar />
+     <div className="w-full overflow-x-hidden mt-20">
       <Outlet />
+      </div>
       <Footar />
     </>
   )
