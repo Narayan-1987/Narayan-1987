@@ -6,7 +6,7 @@ function App() {
   return (
     <>
      <Navbar />
-     <div className="w-full overflow-x-hidden mt-20">
+     <div className="w-full overflow-x-hidden">
       <Outlet />
       </div>
       <Footar />

@@ -1,40 +1,86 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+import { FiMessageCircle, FiSearch } from "react-icons/fi";
+import { NavLink } from "react-router-dom";
 
 export default function Navbar() {
+  const [scrolled, setScrolled] = useState(false);
+
+  const links = [
+    { name: "home", path: "/" },
+    { name: "about", path: "/about" },
+    { name: "services", path: "/services" },
+    { name: "project", path: "/project" },
+    { name: "blogs", path: "/blogs" },
+    { name: "contact", path: "/contact" },
+  ];
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <div className="flex items-center w-full justify-between px-6 py-4 bg-black/90 backdrop-blur-md fixed top-0 z-50 border-b border-cyan-400 shadow-[0_0_15px_#00f7ff]">
+    <motion.header
+      initial={{ y: -80, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      className={`w-full fixed top-0 z-50 backdrop-filter backdrop-blur-lg transition-colors duration-500 ${scrolled
+          ? "bg-gray-900 bg-opacity-90" // background color on scroll
+          : "bg-transparent bg-opacity-30" // default
+        }`}
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+        {/* Logo */}
+        <div className="flex items-center gap-2">
+          <img
+            src="/logo_1.png"
+            alt="Greenly Logo"
+            className="h-50 w-30 object-contain"
+          />
+          <div className="text-white font-bold text-lg leading-tight">
+            <div className="text-xs font-normal tracking-wide text-gray-200"></div>
+          </div>
+        </div>
 
-      {/* Neon Logo */}
-      <div className="h-16 w-16 rounded-full bg-[url('/energylogo.jpg')] bg-cover border-2 border-cyan-400 shadow-[0_0_20px_#00f7ff] hover:shadow-[0_0_30px_#ff00ff] transition-all duration-300"></div>
+        {/* Nav Links */}
+        <nav className="hidden md:flex gap-8 font-semibold text-sm text-white">
+          {links.map((link, i) => (
+            <motion.div key={i} whileHover={{ scale: 1.1 }}>
+              <NavLink
+                to={link.path}
+                className={({ isActive }) =>
+                  `transition-colors duration-300 cursor-pointer hover:text-orange-500 ${isActive ? "text-orange-500" : ""
+                  }`
+                }
+              >
+                {link.name.toUpperCase()}
+              </NavLink>
+            </motion.div>
+          ))}
+        </nav>
 
-      {/* Neon Links */}
-      <div className="flex gap-8 text-lg font-semibold">
-        <Link
-          to="/"
-          className="text-cyan-400 hover:text-pink-500 drop-shadow-[0_0_8px_#00f7ff] hover:drop-shadow-[0_0_12px_#ff00ff] transition-all duration-300"
-        >
-          Home
-        </Link>
-        <Link
-          to="/about"
-          className="text-green-400 hover:text-yellow-400 drop-shadow-[0_0_8px_#39ff14] hover:drop-shadow-[0_0_12px_#ffff00] transition-all duration-300"
-        >
-          About
-        </Link>
-        <Link
-          to="/project"
-          className="text-pink-400 hover:text-cyan-400 drop-shadow-[0_0_8px_#ff00ff] hover:drop-shadow-[0_0_12px_#00f7ff] transition-all duration-300"
-        >
-          Project
-        </Link>
-        <Link
-          to="/contact"
-          className="text-yellow-400 hover:text-purple-400 drop-shadow-[0_0_8px_#ffff00] hover:drop-shadow-[0_0_12px_#a020f0] transition-all duration-300"
-        >
-          Contact
-        </Link>
+        {/* Right Side */}
+        <div className="flex items-center gap-4">
+          <button className="p-2 rounded-full hover:bg-blue-600 text-white">
+            <FiSearch size={18} />
+          </button>
+          <a
+            href="#quote"
+            className="px-4 py-2 bg-orange-500 text-white rounded-md font-semibold shadow hover:bg-orange-600 transition"
+          >
+            GET A QUOTE
+          </a>
+        </div>
       </div>
-    </div>
+    </motion.header>
   );
 }

@@ -1,35 +1,361 @@
-import './about.css';
-function Home() {
+import React, { useEffect, useState } from "react";
+import { bannerData, secondsection, testimonialsData, teamMembers } from "../../static_data/aboutstaticdata";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import { motion } from "framer-motion"; // ✅ Added
+
+export default function AboutPage() {
+  const [inView, setInView] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const section = document.getElementById("sustainable-future");
+      if (section) {
+        const rect = section.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 100) {
+          setInView(true);
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  //  Slider settings
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 2,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 4000,
+    responsive: [
+      { breakpoint: 1024, settings: { slidesToShow: 2 } },
+      { breakpoint: 768, settings: { slidesToShow: 1 } },
+    ],
+  };
+
+  //team members slider settings
+  const teamMembersSliderSettings = {
+    dots: false,
+    infinite: true,
+    speed: 600,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    responsive: [
+      { breakpoint: 1024, settings: { slidesToShow: 2 } },
+      { breakpoint: 640, settings: { slidesToShow: 1 } },
+    ],
+  };
+
+  // ✅ Framer Motion Variants
+  const fadeUp = {
+    hidden: { opacity: 0, y: 40 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
+  };
+
   return (
+    <div>
+      {/* ======================================================== Banner Section ======================================================= */}
+      <section className="relative w-full h-[70vh] flex items-center justify-center bg-gray-900">
+        <img
+          src={bannerData.image}
+          alt={bannerData.title}
+          className="absolute inset-0 w-full h-full object-cover opacity-90"
+        />
+        {bannerData.overlay?.enabled && (
+          <div
+            className="absolute inset-0"
+            style={{
+              backgroundColor: bannerData.overlay.color,
+              opacity: bannerData.overlay.opacity,
+            }}
+          />
+        )}
+        <motion.div
+          className="relative z-10 text-center text-white px-4"
+          initial="hidden"
+          animate="visible"
+          variants={fadeUp}
+        >
+          <h1 className="text-4xl md:text-6xl font-bold mb-4">
+            {bannerData.title}
+          </h1>
+          <p className="text-lg md:text-xl">
+            <span className="text-green-400">{bannerData.breadcrumb[0]}</span>{" "}
+            <span className="mx-2">›</span> {bannerData.breadcrumb[1]}
+          </p>
+        </motion.div>
+      </section>
 
-    <div className="bg-[url('/bg-1.avif')] h-100 w-full bg-cover flex">
-      {/*left*/}
-      <div className="bg-[url('/circle.avif')] h-90 w-90 bg-cover" style={{ marginTop: '30px'}}>
-        {/*button*/}
-        <div className="bg-blue-500 text-white text-center w-40 rounded-full cursor-pointer" style={{ marginLeft: '200px', marginTop: '30px' }}>Planning Suite</div>
-        <div className="bg-blue-500 text-white text-center w-40 rounded-full cursor-pointer" style={{ marginLeft: '220px', marginTop: '20px' }}>Site Suite</div>
-        <div className="bg-blue-500 text-white text-center w-60 rounded-full cursor-pointer" style={{ marginLeft: '250px', marginTop: '30px' }}>Patient Engagement Suite</div>
-        <div className="bg-blue-500 text-white text-center w-60 rounded-full cursor-pointer" style={{ marginLeft: '280px', marginTop: '40px' }}>Safety, Regulatory Quality</div>
-        <div className="bg-blue-500 text-white text-center w-60 rounded-full cursor-pointer" style={{ marginLeft: '250px', marginTop: '50px' }}>Clinical Data Analytic Solutions</div>
+      {/* ============================================================ Second Section ============================================================= */}
+      <section id="sustainable-future" className="w-full py-12 px-4 md:px-12 bg-white">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+          {/* Left Image */}
+          <motion.div
+            className="w-full"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeUp}
+          >
+            <img
+              src={secondsection.image}
+              alt="Engineer working on solar panels"
+              className="w-full h-auto rounded-lg shadow-lg"
+            />
+          </motion.div>
 
-      </div>
-      {/* right */}
-      <div className="max-w-xl text-gray-700 px-10 ml-30 my-7" style={{ marginLeft: '300px', marginTop: '100px'}}>
-        <h2 className="text-2xl font-semibold text-blue-500 mb-3" style={{ textShadow: '1px 1px 1px black' }}>
-          Suites and products that work great on their own, but even better together
-        </h2>
-        <p className="mb-4 text-justify">
-          The Orchestrated Clinical Trials (OCT) Suites are created to engage the patient
-          and improve the speed and agility of clinical research. Most OCT products are
-          cloud-based solutions designed to improve the clinical trial process and are
-          interoperable with legacy systems. When used together, they power complete
-          orchestration of your trials. Explore our full line of integrated suites and products.
-        </p>
-        <p className="text-blue-500 font-medium cursor-pointer">✨ Click each area to learn more</p>
-        <div className="bg-blue-500 text-white text-center w-40 rounded-full cursor-pointer" style={{ marginLeft: '250px', marginTop: '50px'}}>Contact Us</div>
-      </div>
+          {/* Right Content */}
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeUp}
+          >
+            <p className="text-gray-500 uppercase tracking-widest mb-2 text-sm">
+              {secondsection.subtitle}
+            </p>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 leading-snug">
+              {secondsection.title}
+            </h2>
+
+            {/* Progress Bars */}
+            <div className="space-y-6">
+              {secondsection.progress.map((item, idx) => (
+                <div key={idx}>
+                  <div className="flex justify-between mb-1 text-sm font-medium text-gray-700">
+                    <span>{item.title}</span>
+                    <span>{item.value}%</span>
+                  </div>
+                  <div className="w-full bg-gray-200 rounded-full h-2 overflow-hidden">
+                    <motion.div
+                      className="bg-orange-500 h-2 rounded-full"
+                      initial={{ width: "0%" }}
+                      animate={{ width: inView ? `${item.value}%` : "0%" }}
+                      transition={{ duration: 1.2, ease: "easeOut" }}
+                    />
+                  </div>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* =========================================================== third Section ========================================================== */}
+      <section className="py-16 px-6 bg-white">
+        <motion.div
+          className="max-w-7xl mx-auto text-center mb-12"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeUp}
+        >
+          <p className="text-gray-500 uppercase tracking-widest text-sm">
+            {testimonialsData.subtitle}
+          </p>
+          <h2 className="text-3xl md:text-4xl font-bold mt-2 mb-4">
+            {testimonialsData.title}
+          </h2>
+          <p className="text-gray-600 max-w-3xl mx-auto">
+            {testimonialsData.description}
+          </p>
+        </motion.div>
+
+        {/* Slider */}
+        <motion.div
+          className="max-w-6xl mx-auto"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeUp}
+        >
+          <Slider {...settings}>
+            {testimonialsData.testimonials.map((item) => (
+              <div key={item.id} className="px-4 h-full">
+                <div className="bg-white border rounded-lg shadow-md p-6 relative h-[350px] flex flex-col justify-between">
+                  <div>
+                    <div className="flex items-center gap-4 mb-4">
+                      <img
+                        src={item.image}
+                        alt={item.name}
+                        className="w-16 h-16 rounded-md object-cover"
+                      />
+                      <div className="text-left">
+                        <h3 className="font-bold text-lg">{item.name}</h3>
+                        <p className="text-gray-500 text-sm">{item.role}</p>
+                      </div>
+                      <span className="absolute top-6 right-6 text-orange-500 text-3xl font-bold">
+                        ❝
+                      </span>
+                    </div>
+                    <p className="text-gray-600 text-left line-clamp-4">
+                      {item.feedback}
+                    </p>
+                  </div>
+                  {/* Rating */}
+                  <div className="flex mt-4">
+                    {Array.from({ length: item.rating }).map((_, i) => (
+                      <span key={i} className="text-yellow-500 text-lg">
+                        ★
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </Slider>
+        </motion.div>
+      </section>
+
+      {/*==================================================fourth Section =========================================================*/}
+      <section className="relative w-full bg-white">
+        <motion.div
+          className="w-[1300px] h-[400px] md:h-[500px] relative"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeUp}
+        >
+          <img
+            src="/man2.jpg"
+            alt="Solar Engineer"
+            className="w-full h-full object-cover"
+          />
+
+          {/* Content Box */}
+          <div className="absolute top-1/2 right-6 md:right-16 transform -translate-y-1/2 bg-gray-900 text-white p-6 md:p-10 max-w-md shadow-lg">
+            <p className="uppercase tracking-widest text-sm text-gray-400 mb-2">
+              What We Do
+            </p>
+            <h2 className="text-2xl md:text-4xl font-bold mb-4 leading-snug">
+              Fostering Growth <br /> of Solar Energy!
+            </h2>
+            <p className="text-gray-300 mb-6 text-sm md:text-base">
+              It amet consectetur adipiscing elit duis tristique. Nulla aliquet
+              enim tortor at. Eget nulla facilisi etiam sumitut est dignissim.
+            </p>
+            <button className="bg-orange-500 hover:bg-orange-600 text-white px-5 py-3 rounded font-semibold transition duration-300">
+              View All
+            </button>
+          </div>
+        </motion.div>
+      </section>
+
+      {/*==================================================fifth Section =========================================================*/}
+      <section className="py-16 bg-white">
+        <motion.div
+          className="text-center mb-12"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeUp}
+        >
+          <p className="text-gray-500 uppercase tracking-widest text-sm">
+            What We Do
+          </p>
+          <h2 className="text-3xl md:text-4xl font-bold mt-2">
+            Meet Leadership Team
+          </h2>
+        </motion.div>
+
+        {/* Slider */}
+        <motion.div
+          className="max-w-7xl mx-auto px-6"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeUp}
+        >
+          <Slider {...teamMembersSliderSettings}>
+            {teamMembers.map((member) => (
+              <div key={member.id} className="px-4">
+                <div className="relative overflow-hidden rounded-lg shadow-md group">
+                  <img
+                    src={member.img}
+                    alt={member.name}
+                    className="w-full h-[350px] object-cover"
+                  />
+                  {/* Orange + icon */}
+                  <div className="absolute top-4 right-4 bg-orange-500 w-8 h-8 flex items-center justify-center text-white font-bold rounded cursor-pointer transition group-hover:scale-110">
+                    +
+                  </div>
+                </div>
+                <div className="text-center mt-4">
+                  <h3 className="font-semibold text-lg">{member.name}</h3>
+                  <p className="text-gray-500 text-sm">{member.role}</p>
+                </div>
+              </div>
+            ))}
+          </Slider>
+        </motion.div>
+      </section>
+
+      {/* ============================================================ last Section ============================================================= */}
+      <section className="bg-gray-800 text-white py-16 px-6">
+        <motion.div
+          className="max-w-7xl mx-auto grid gap-12 lg:grid-cols-3 items-center"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeUp}
+        >
+          {/* Left Heading */}
+          <div className="lg:col-span-1">
+            <h2 className="text-3xl md:text-4xl font-bold leading-snug">
+              Let's Build Something <br /> Great Together
+            </h2>
+          </div>
+
+          {/* Contact Info */}
+          <div className="flex flex-col gap-6 lg:col-span-1">
+            <div>
+              <p className="uppercase text-sm text-gray-400 mb-1">Call Us</p>
+              <a
+                href="tel:+18556466242"
+                className="text-lg text-gray-300 hover:text-white"
+              >
+                +91 8533921354
+              </a>
+            </div>
+            <div>
+              <p className="uppercase text-sm text-gray-400 mb-1">Email Us</p>
+              <a
+                href="mailto:naraynpachaury567@gmail.com"
+                className="text-lg text-gray-300 hover:text-white"
+              >
+                naraynpachaury567@gmail.com
+              </a>
+            </div>
+          </div>
+
+          {/* Subscribe Form */}
+          <div className="lg:col-span-1">
+            <p className="uppercase text-sm text-gray-400 mb-3">
+              Subscribe to receive updates
+            </p>
+            <form className="flex items-center bg-gray-800 rounded-full overflow-hidden max-w-md">
+              <input
+                type="email"
+                placeholder="Enter Your Email"
+                className="flex-1 px-4 py-3 bg-transparent text-gray-300 focus:outline-none"
+              />
+              <button
+                type="submit"
+                className="bg-white text-black font-semibold px-6 py-3 rounded-full hover:bg-gray-200 transition"
+              >
+                Subscribe
+              </button>
+            </form>
+          </div>
+        </motion.div>
+      </section>
     </div>
-
   );
 }
-export default Home;
