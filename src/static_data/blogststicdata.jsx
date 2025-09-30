@@ -1,6 +1,6 @@
 const bannerData = {
     id: "about-us-banner",
-    title: "blogs ",
+    title: "Blogs ",
     breadcrumb: ["Greenly", "blogs"],
     image: "solar1.jpeg",
     overlay: {
