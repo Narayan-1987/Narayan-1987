@@ -1,198 +1,116 @@
 import React, { useState } from "react";
 import { bannerData, accordions, services } from "../../static_data/servicestaticdata";
-import { Check } from "lucide-react";
+import { Check, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function Services() {
-  const [open, setOpen] = useState(0);
+  const [active, setActive] = useState(null);
 
   return (
-    <div>
-      {/* ====================================Services first section============================================================ */}
-      <section className="relative w-full h-[70vh] flex items-center justify-center bg-gray-900">
-        <motion.img
-          initial={{ opacity: 0, scale: 1.1 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1 }}
-          src={bannerData.image}
-          alt={bannerData.title}
-          className="absolute inset-0 w-full h-full object-cover opacity-90"
-        />
-        {bannerData.overlay?.enabled && (
-          <div
-            className="absolute inset-0"
-            style={{
-              backgroundColor: bannerData.overlay.color,
-              opacity: bannerData.overlay.opacity,
-            }}
-          />
-        )}
+    <div className="bg-gray-50">
+      {/* ========================== HERO ========================== */}
+      <section className="relative bg-gradient-to-r from-orange-500 to-yellow-500 text-white py-20 px-6 md:px-16 flex flex-col md:flex-row items-center gap-10">
+        {/* Text */}
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ x: -60, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.8 }}
-          className="relative z-10 text-center text-white px-4"
+          className="flex-1 space-y-6"
         >
-          <h1 className="text-4xl md:text-6xl font-bold mb-4">
+          <h1 className="text-4xl md:text-6xl font-extrabold leading-snug">
             {bannerData.title}
           </h1>
-          <p className="text-lg md:text-xl">
-            <span className="text-green-400">{bannerData.breadcrumb[0]}</span>{" "}
-            <span className="mx-2">›</span> {bannerData.breadcrumb[1]}
+          <p className="text-lg md:text-xl text-orange-100 max-w-lg">
+            {bannerData.breadcrumb[0]} › {bannerData.breadcrumb[1]}
           </p>
+          <button className="px-6 py-3 bg-white text-orange-600 font-semibold rounded-full hover:bg-gray-200 transition">
+            Get Started
+          </button>
         </motion.div>
+
+        {/* Image */}
+        <motion.img
+          initial={{ x: 60, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ duration: 0.8 }}
+          src={bannerData.image}
+          alt="Services Banner"
+          className="flex-1 rounded-2xl shadow-lg object-cover h-80 md:h-[450px]"
+        />
       </section>
 
-      {/* ===================================================second section================================================== */}
-      <div className="w-full bg-gray-50 flex flex-col lg:flex-row gap-6 p-4 lg:p-8 text-sm">
-        {/* Sidebar */}
-        <motion.aside
-          initial={{ x: -80, opacity: 0 }}
-          whileInView={{ x: 0, opacity: 1 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="w-full lg:w-1/4"
-        >
-          <div className="bg-white shadow rounded-lg p-4 flex flex-col gap-6">
-            {/* Services List */}
-            <div>
-              <h2 className="font-bold text-base mb-3">SERVICES</h2>
-              <ul className="space-y-2 text-sm">
-                {[
-                  "Technical Services",
-                  "Energy panels",
-                  "Wind Generators",
-                  "Solar As A Service",
-                  "Solar PV Systems",
-                ].map((service, i) => (
-                  <li
-                    key={i}
-                    className="flex justify-between items-center border-b last:border-0 pb-1 cursor-pointer hover:text-orange-500"
-                  >
-                    {service} <span>›</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+      {/* ========================== SERVICES GRID ========================== */}
+      <section className="max-w-7xl mx-auto px-6 py-20">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold">What We Offer</h2>
+          <p className="text-gray-600 mt-3 max-w-2xl mx-auto">
+            Discover a range of solutions designed to bring sustainable energy into your life and business.
+          </p>
+        </div>
 
-            {/* Need Help */}
-            <div>
-              <h2 className="font-bold text-base mb-2">NEED HELP</h2>
-              <p className="text-gray-600 text-xs leading-relaxed">
-                Our Client care managers are on call 24/7 to answer your questions
-                or submit a business inquiry online.
-              </p>
-              <p className="mt-2 font-bold text-lg">123 456 789</p>
-            </div>
+        {/* Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {[
+            { icon: "⚡", title: "Quick Installation", desc: "Fast, seamless setup with minimal disruption to your routine." },
+            { icon: "🌿", title: "Eco-Friendly", desc: "Contribute to a greener planet with clean renewable energy." },
+            { icon: "💡", title: "Smart Solutions", desc: "Tailored systems optimized for performance and efficiency." },
+            { icon: "🔋", title: "Durable Systems", desc: "Long-lasting equipment designed for consistent energy supply." },
+            { icon: "🌍", title: "Global Standards", desc: "We follow industry-leading practices to ensure quality." },
+            { icon: "🤝", title: "Dedicated Support", desc: "Our team is available around the clock to guide you." },
+          ].map((item, i) => (
+            <motion.div
+              key={i}
+              whileHover={{ y: -8 }}
+              className="bg-white rounded-xl p-6 shadow-md hover:shadow-xl transition"
+            >
+              <div className="text-5xl mb-4">{item.icon}</div>
+              <h3 className="font-semibold text-lg mb-2">{item.title}</h3>
+              <p className="text-sm text-gray-600">{item.desc}</p>
+            </motion.div>
+          ))}
+        </div>
+      </section>
 
-            {/* Downloads */}
-            <div>
-              <h2 className="font-bold text-base mb-3">DOWNLOAD</h2>
-              <div className="flex flex-col gap-2">
-                <button className="bg-orange-500 text-white py-1.5 px-3 rounded text-sm hover:bg-orange-600 transition">
-                  Download.pdf
-                </button>
-                <button className="bg-black text-white py-1.5 px-3 rounded text-sm hover:bg-gray-800 transition">
-                  Download.txt
-                </button>
-              </div>
-            </div>
-          </div>
-        </motion.aside>
-
-        {/* Main Content */}
-        <motion.main
-          initial={{ x: 80, opacity: 0 }}
-          whileInView={{ x: 0, opacity: 1 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="w-full lg:w-3/4 flex flex-col gap-6"
-        >
+      {/* ========================== ACCORDION SECTION ========================== */}
+      <section className="bg-white py-20 px-6 md:px-16">
+        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12">
           {/* Image */}
-          <div>
-            <img
-              src="man1.jpg"
-              alt="Service"
-              className="rounded-lg shadow w-full h-200 object-cover"
-            />
-          </div>
-
-          {/* Services Section */}
-          <section>
-            <h2 className="text-xl font-bold mb-3">Services We Provide</h2>
-            <p className="text-gray-600 leading-relaxed text-sm">
-              Consider powering your business’ office, commercial building or a
-              manufacturing plant as an investment in the future.
-            </p>
-          </section>
-
-          {/* Features */}
-          <section className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              className="bg-white rounded-lg p-4 shadow hover:shadow-md transition"
-            >
-              <div className="text-4xl mb-2 text-orange-500">💡</div>
-              <h3 className="font-bold text-base mb-1">Easy Installation</h3>
-              <p className="text-gray-600 text-xs leading-relaxed">
-                Wind is a source of energy which is non-polluting and renewable,
-                wind turbines create power without using fossil fuels.
-              </p>
-              <button className="mt-3 text-xs text-orange-500 font-semibold hover:underline">
-                Read More
-              </button>
-            </motion.div>
-
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              className="bg-white rounded-lg p-4 shadow hover:shadow-md transition"
-            >
-              <div className="text-4xl mb-2 text-orange-500">🌍</div>
-              <h3 className="font-bold text-base mb-1">Long Time to Use</h3>
-              <p className="text-gray-600 text-xs leading-relaxed">
-                Source of energy which is non-polluting and renewable, wind
-                turbines create power without using fossil fuels.
-              </p>
-              <button className="mt-3 text-xs text-orange-500 font-semibold hover:underline">
-                Read More
-              </button>
-            </motion.div>
-          </section>
-        </motion.main>
-      </div>
-
-      {/* ===================================================third section================================================== */}
-      <section className="w-full px-6 py-12 md:px-16 bg-white flex justify-end">
-        <div className="w-full lg:w-3/4 space-y-10">
-          <motion.div
-            initial={{ y: 40, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
+          <motion.img
+            initial={{ x: -60, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="space-y-4"
-          >
-            <h2 className="bg-orange-500 text-white text-lg md:text-xl font-bold px-6 py-4 rounded-lg shadow">
-              Why have long experience!
-            </h2>
+            src="https://plus.unsplash.com/premium_photo-1681074963522-00ca908dce4e?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            alt="Experience"
+            className="w-full lg:w-1/2 rounded-2xl shadow-lg"
+          />
 
+          {/* Accordion */}
+          <div className="flex-1 space-y-6">
+            <h2 className="text-2xl md:text-3xl font-bold mb-4">
+              Why Work With Us?
+            </h2>
             {accordions.map((item) => (
-              <div key={item.id} className="rounded-lg overflow-hidden">
+              <div key={item.id} className="border rounded-lg overflow-hidden">
                 <button
-                  onClick={() => setOpen(open === item.id ? 0 : item.id)}
-                  className={`w-full text-left px-6 py-4 font-semibold flex justify-between items-center ${open === item.id ? "bg-gray-200" : "bg-gray-100"
-                    }`}
+                  onClick={() => setActive(active === item.id ? null : item.id)}
+                  className="w-full flex justify-between items-center px-5 py-4 font-medium text-left hover:bg-gray-100 transition"
                 >
                   {item.title}
-                  <span>{open === item.id ? "-" : "+"}</span>
+                  <ChevronDown
+                    className={`w-5 h-5 transition-transform ${
+                      active === item.id ? "rotate-180 text-orange-500" : ""
+                    }`}
+                  />
                 </button>
                 <AnimatePresence>
-                  {open === item.id && (
+                  {active === item.id && (
                     <motion.div
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: "auto", opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.4 }}
-                      className="px-6 py-4 bg-white text-gray-600"
+                      transition={{ duration: 0.3 }}
+                      className="px-5 pb-4 text-sm text-gray-600"
                     >
                       {item.content}
                     </motion.div>
@@ -200,99 +118,54 @@ export default function Services() {
                 </AnimatePresence>
               </div>
             ))}
-          </motion.div>
-
-          {/* Right Section */}
-          <motion.div
-            initial={{ x: 80, opacity: 0 }}
-            whileInView={{ x: 0, opacity: 1 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="flex flex-col lg:flex-row items-start gap-6"
-          >
-            <img
-              src="man3.jpg"
-              alt="Wind Turbine"
-              className="w-full lg:w-1/2 rounded-xl shadow-md"
-            />
-            <div>
-              <h2 className="text-2xl font-bold mb-4">Services We Offer</h2>
-              <p className="text-gray-600 mb-6">
-                We specialize in consulting in choosing and actually installing
-                doing the of both full-cycle batteries.
-              </p>
-              <ul className="space-y-3">
-                {services.map((service, i) => (
-                  <li key={i} className="flex items-center gap-2 text-gray-700">
-                    <Check className="w-5 h-5 text-orange-500" />
-                    {service}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </motion.div>
+          </div>
         </div>
       </section>
 
-      {/* ===================================================last section================================================== */}
-      <motion.section
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-        className="bg-gray-800 text-white py-16 px-6"
-      >
-        <div className="max-w-7xl mx-auto grid gap-12 lg:grid-cols-3 items-center">
-          {/* Left Heading */}
-          <div className="lg:col-span-1">
-            <h2 className="text-3xl md:text-4xl font-bold leading-snug">
-              Let's Build Something <br /> Great Together
-            </h2>
-          </div>
-
-          {/* Contact Info */}
-          <div className="flex flex-col gap-6 lg:col-span-1">
-            <div>
-              <p className="uppercase text-sm text-gray-400 mb-1">Call Us</p>
-              <a
-                href="tel:+18556466242"
-                className="text-lg text-gray-300 hover:text-white"
-              >
-                +91 8533921354
-              </a>
-            </div>
-            <div>
-              <p className="uppercase text-sm text-gray-400 mb-1">Email Us</p>
-              <a
-                href="mailto:naraynpachaury567@gmail.com"
-                className="text-lg text-gray-300 hover:text-white"
-              >
-                naraynpachaury567@gmail.com
-              </a>
-            </div>
-          </div>
-
-          {/* Subscribe Form */}
-          <div className="lg:col-span-1">
-            <p className="uppercase text-sm text-gray-400 mb-3">
-              Subscribe to receive updates
+      {/* ========================== SERVICES LIST ========================== */}
+      <section className="bg-gray-100 py-20 px-6 md:px-16">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <h2 className="text-2xl md:text-3xl font-bold mb-4">Our Expertise</h2>
+            <p className="text-gray-600 mb-6">
+              From consultation to complete system setup, we deliver reliable and efficient renewable energy solutions tailored to your needs.
             </p>
-            <form className="flex items-center bg-gray-800 rounded-full overflow-hidden max-w-md">
-              <input
-                type="email"
-                placeholder="Enter Your Email"
-                className="flex-1 px-4 py-3 bg-transparent text-gray-300 focus:outline-none"
-              />
-              <button
-                type="submit"
-                className="bg-white text-black font-semibold px-6 py-3 rounded-full hover:bg-gray-200 transition"
-              >
-                Subscribe
-              </button>
-            </form>
+            <ul className="space-y-3">
+              {services.map((service, i) => (
+                <li key={i} className="flex items-center gap-2 text-gray-700">
+                  <Check className="w-5 h-5 text-orange-500" />
+                  {service}
+                </li>
+              ))}
+            </ul>
           </div>
+          <motion.img
+            initial={{ opacity: 0, scale: 1.1 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            src="https://plus.unsplash.com/premium_photo-1663089743898-aefbe7863763?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1pbi1zYW1lLXNlcmllc3wxfHx8ZW58MHx8fHx8"
+            alt="Services"
+            className="w-full rounded-2xl shadow-lg"
+          />
         </div>
-      </motion.section>
+      </section>
+
+      {/* ========================== FOOTAR SECTION ========================== */}
+      <footer className="bg-gray-800 text-white py-16 px-6 lg:px-20 grid lg:grid-cols-3 gap-12">
+        <div>
+          <h2 className="text-3xl font-bold">Let's Build Great Dreams Together</h2>
+        </div>
+        <div>
+          <p>📞 +1 8533921354</p>
+          <p>✉ narayanpachaury567@gmail.com</p>
+        </div>
+        <form className="flex items-center bg-gray-700 rounded-full overflow-hidden">
+          <input type="email" placeholder="Enter Your Email"
+            className="flex-1 px-4 py-3 bg-transparent text-gray-300" />
+          <button className="bg-white text-black px-6 py-3 rounded-full">Subscribe</button>
+        </form>
+      </footer>
     </div>
   );
 }

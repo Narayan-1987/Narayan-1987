@@ -1,8 +1,8 @@
 const bannerData = {
     id: "about-us-banner",
     title: "Blogs ",
-    breadcrumb: ["Greenly", "blogs"],
-    image: "solar1.jpeg",
+    breadcrumb: ["NCl", "blogs"],
+    image: "image.png",
     overlay: {
         enabled: true,
         color: "black",
@@ -13,87 +13,88 @@ const bannerData = {
 const cards = [
   {
     "id": 1,
-    "date": "09 JUN, 2019",
+    "date": "09 JUN, 2025",
     "category": "SOLAR PANELS",
-    "title": "Growth of Clean Energy Part of Solution",
+    "title": "Clean Energy on the Rise",
     "image": "s1.jpg"
   },
   {
     "id": 2,
-    "date": "23 JAN, 2019",
+    "date": "23 JAN, 2025",
     "category": "ELECTRICITY",
-    "title": "Metal Roofing: The Best for Solar Panels",
+    "title": "Best Roof Choice for Solar Panels",
     "image": "man2.jpg"
   },
   {
     "id": 3,
-    "date": "22 JAN, 2019",
+    "date": "22 JAN, 2025",
     "category": "WIND MILL",
-    "title": "Bill Gates Launches Energy Investment Fund",
+    "title": "Bill Gates Funds Green Energy",
     "image": "s3.jpg"
   },
   {
     "id": 4,
-    "date": "15 FEB, 2019",
+    "date": "15 FEB, 2025",
     "category": "SOLAR ENERGY",
-    "title": "Top 10 Benefits of Renewable Energy",
+    "title": "10 Benefits of Renewables",
     "image": "s4.jpg"
   },
   {
     "id": 5,
-    "date": "01 MAR, 2019",
+    "date": "01 MAR, 2025",
     "category": "ELECTRIC GRID",
-    "title": "How Smart Grids are Changing the Future",
+    "title": "Smart Grids: The Future of Power",
     "image": "s5.jpg"
   },
   {
     "id": 6,
-    "date": "11 MAR, 2019",
+    "date": "11 MAR, 2025",
     "category": "RESEARCH",
-    "title": "New Innovations in Renewable Tech",
+    "title": "New Breakthroughs in Green Tech",
     "image": "man1.jpg"
   },
   {
     "id": 7,
-    "date": "20 APR, 2019",
+    "date": "20 APR, 2025",
     "category": "WIND ENERGY",
-    "title": "Harnessing the Power of Wind",
+    "title": "Powering the World with Wind",
     "image": "s7.jpg"
   },
   {
     "id": 8,
-    "date": "10 MAY, 2019",
+    "date": "10 MAY, 2025",
     "category": "SOLAR POWER",
-    "title": "Solar Panels Efficiency Tips",
+    "title": "Boost Your Solar Efficiency",
     "image": "s8.jpg"
   },
   {
     "id": 9,
-    "date": "21 MAY, 2019",
+    "date": "21 MAY, 2025",
     "category": "ELECTRICITY",
-    "title": "How to Save Power at Home",
+    "title": "Save Energy at Home Easily",
     "image": "family.jpeg"
   },
   {
     "id": 10,
-    "date": "01 JUN, 2019",
+    "date": "01 JUN, 2025",
     "category": "RENEWABLE",
-    "title": "Future of Green Energy Investments",
+    "title": "The Future of Green Investments",
     "image": "s9.jpg"
   },
   {
     "id": 11,
-    "date": "15 JUN, 2019",
+    "date": "15 JUN, 2025",
     "category": "WIND MILL",
-    "title": "Wind Turbines Across the World",
+    "title": "Wind Turbines Worldwide",
     "image": "s10.jpg"
   },
   {
     "id": 12,
-    "date": "30 JUN, 2019",
+    "date": "30 JUN, 2025",
     "category": "SOLAR ROOF",
-    "title": "Affordable Solar Roofing for Homes",
+    "title": "Affordable Solar Roofs for Homes",
     "image": "man3.jpg"
   }
 ];
+
 export {bannerData, cards };

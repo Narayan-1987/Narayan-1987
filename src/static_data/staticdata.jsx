@@ -1,216 +1,84 @@
-import { FaCloud, FaLaptop, FaLightbulb } from "react-icons/fa";
-import { IoSettings } from "react-icons/io5";
-import { Sun, PanelsTopLeft, Wind, Lightbulb } from "lucide-react";
+// src/static_data/staticdata.js
+import { FaLeaf, FaBolt, FaIndustry, FaHome } from "react-icons/fa";
 
-const data = [
-    {
-        icon: <FaLightbulb color="yellow" />,
-        title: "Inovation",
-        description: "Build responsive and modern mobile applications for Android and iOS."
-    },
-    {
-        icon: <FaLaptop color="gray" />,
-        title: "Efficiency",
-        description: "Create scalable and fast web applications using the latest technologies."
-    },
-    {
-        icon: <FaCloud color="orange" />,
-        title: "Sustainability",
-        description: "Deploy and manage your apps securely with cloud-based infrastructure."
-    }
-
-
-];
-const services = [
-    {
-        icon: <IoSettings color="blue" />,
-        title: "Energy Audits",
-        description: "Comprehensive energy audits to identify savings opportunities."
-    },
-    {
-        icon: "⚡",
-        title: "Implementation",
-        description: "Ongoing energy management services to optimize usage."
-    },
-    {
-        icon: "🌱",
-        title: "Monitoring & Optimization",
-        description: "Expert advice on sustainability initiatives and practices."
-    }
-];
-const industries = [
-    {
-        icon: "🏭",
-        title: "Commercial Real Estate",
-        description: "Solutions tailored for the manufacturing sector."
-    },
-    {
-        icon: "🏢",
-        title: "Manufacturing",
-        description: "Energy strategies for commercial buildings."
-    },
-    {
-        icon: "🏡",
-        title: "Healthcare",
-        description: "Home energy efficiency and management."
-    }
-];
-const commercialrealestate = "";
-const casestudydata = [
-    {
-        title: "",
-        description: "",
-        src: "/1,1.png"
-    },
-    {
-        title: "",
-        description: "",
-        src: "/1,2.png"
-    },
-    {
-        title: "",
-        description: "",
-        src: "/1,3.png"
-    },
-    {
-        title: "",
-        description: "",
-        src: "/1,4.png"
-    },
-    {
-        title: "",
-        description: "",
-        src: "/1,5.png"
-    },
-];
-const ClientLogos = [
-    {
-        icon: "🔍",
-        title: "Client Testimonial 1",
-        description: "Comprehensive energy audits to identify savings opportunities."
-    },
-    {
-        icon: "⚡",
-        title: "Client Testimonial 2",
-        description: "Ongoing energy management services to optimize usage."
-    },
-    {
-        icon: "🌱",
-        title: "Client Testimonial 3",
-        description: "Expert advice on sustainability initiatives and practices."
-    }
-];
-const logos = [
-    { src: "/1,1.png", alt: "Retro Design" },
-    { src: "/1,2.png", alt: "Financial Advisors" },
-    { src: "/1,3.png", alt: "Business Design" },
-    { src: "/1,4.png", alt: "Partner" },
-    { src: "/1,5.png", alt: "Best Finance" },
-    { src: "/1,6.png", alt: "Business Service" },
+// ================= Logo Section Data =================
+export const logos = [
+  { src: "1,1.png", alt: "Client Logo 1" },
+  { src: "1,2.png", alt: "Client Logo 2" },
+  { src: "1,3.png", alt: "Client Logo 3" },
+  { src: "1,4.png", alt: "Client Logo 4" },
+  { src: "1,5.png", alt: "Client Logo 5" },
+  { src: "1,6.png", alt: "Client Logo 6" },
 ];
 
-const images = [
-    "man1.jpg",
-    "man2.jpg",
-    "man3.jpg",
-    "solar1.jpeg",
+// ================= Hero Slider Images =================
+export const images = [
+  "https://plus.unsplash.com/premium_photo-1663089781621-65b8476dbcbd?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  "https://images.unsplash.com/photo-1559302504-64aae6ca6b6d?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDMwfHx8ZW58MHx8fHx8",
+  "https://plus.unsplash.com/premium_photo-1664302342178-564b28c68d33?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  "/solar1.jpeg",
 ];
 
-
-
-const features = [
-    {
-        number: "01",
-        title: "Energy Solutions",
-        description:
-            "Turpis egestas pretium aenean pharetra magna ac placerat amet. Sit amet luctus",
-    },
-    {
-        number: "02",
-        title: "Global Expertise",
-        description:
-            "Venenatis lectus magna fringilla urna quis blandit turpis cursus diam vitae turpis.",
-    },
-    {
-        number: "03",
-        title: "For Commercial",
-        description:
-            "Turpis egestas pretium aenean pharetra magna ac placerat amet. Sit amet luctus",
-    },
-    {
-        number: "04",
-        title: "Energy Solutions",
-        description:
-            "Venenatis lectus magna fringilla urna quis blandit turpis cursus diam vitae turpis.",
-    },
-];
-
-const orange = [
-    {
-        category: "ENERGY",
-        title: "Technical Services",
-        icon: <Sun size={50} />,
-        image: "/man1.jpg",
-    },
-    {
-        category: "ELECTRICITY",
-        title: "Energy panels",
-        icon: <PanelsTopLeft size={50} />,
-        image: "/man2.jpg",
-    },
-    {
-        category: "SOLAR PANNELS",
-        title: "Wind Generators",
-        icon: <Wind size={50} />,
-        image: "/man3.jpg",
-    },
-    {
-        category: "ELECTRICITY",
-        title: "Solar As A Service",
-        icon: <Lightbulb size={50} />,
-        image: "/solar1.jpeg",
-    },
-];
-
-const steps = [
-{ number: "01", title: "We Design & Ship" },
-{ number: "02", title: "Contract Or Install" },
-{ number: "03", title: "Power Your Home" },
-{ number: "04", title: "Save Your Money" },
-];
-
-
-const specialities = [
-"Duis aut irure in velit esse",
-"Excepteur sint occaecat cupida",
-"Lorem ipsum dolor consectetur",
-];
-
-
-const hlast = [
+// ================= Features Section =================
+export const features = [
   {
-    id: 1,
-    img: "family.jpeg",
-    date: "09 JUN, 2019",
-    category: "SOLAR PANELS",
-    title: "Growth of Clean Energy Part of Solution",
+    number: "10+",
+    title: "Years of Experience",
+    description: "Providing clean and sustainable energy solutions since last decade.",
+  },
+  {
+    number: "500+",
+    title: "Projects Completed",
+    description: "Trusted by industries, businesses, and households worldwide.",
+  },
+  {
+    number: "100%",
+    title: "Client Satisfaction",
+    description: "We ensure quality, reliability, and sustainability in every project.",
+  },
+  {
+    number: "50MW",
+    title: "Energy Installed",
+    description: "Large scale solar and renewable installations across industries.",
+  },
+];
+
+// ================= Orange Section (Services) =================
+export const orange = [
+  { icon: <FaLeaf className="text-5xl" />, title: "Green Energy" },
+  { icon: <FaBolt className="text-5xl" />, title: "Energy Efficiency" },
+  { icon: <FaIndustry className="text-5xl" />, title: "Industrial Solutions" },
+  { icon: <FaHome className="text-5xl" />, title: "Residential Solar" },
+];
+
+// ================= Steps Section =================
+export const steps = [
+  { number: "01", title: "Consultation & Planning" },
+  { number: "02", title: "Design & Engineering" },
+  { number: "03", title: "Installation & Support" },
+];
+
+// ================= Blog Section =================
+export const hlast = [
+  {
+    img: "https://plus.unsplash.com/premium_photo-1663089781621-65b8476dbcbd?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    date: "Sept 20, 2025",
+    category: "Renewable Energy",
+    title: "How Solar Power is Transforming Urban Living",
     link: "#",
   },
   {
-    id: 2,
-    img: "man2.jpg",
-    date: "23 JAN, 2019",
-    category: "ELECTRICITY",
-    title: "Metal Roofing: The Best for Solar Panels",
+    img: "https://plus.unsplash.com/premium_photo-1663089743898-aefbe7863763?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1pbi1zYW1lLXNlcmllc3wxfHx8ZW58MHx8fHx8",
+    date: "Sept 15, 2025",
+    category: "Sustainability",
+    title: "Top 5 Ways to Reduce Your Carbon Footprint",
     link: "#",
   },
   {
-    id: 3,
-    img: "man1.jpg",
-    date: "22 JAN, 2019",
-    category: "WIND MILL",
-    title: "Bill Gates Launches Energy Investment Fund",
+    img: "https://images.unsplash.com/photo-1660330589505-9a433a742a7b?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    date: "Sept 10, 2025",
+    category: "Technology",
+    title: "AI in Renewable Energy: Future of Smart Grids",
     link: "#",
   },
 ];
-export { data, services, industries, commercialrealestate, casestudydata, ClientLogos, logos, images, features, orange, steps, specialities,hlast };
