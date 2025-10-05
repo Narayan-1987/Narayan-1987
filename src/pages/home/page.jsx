@@ -120,20 +120,32 @@ function Home() {
       </section>
 
       {/* ================= Orange Section ================= */}
-      <section className="bg-orange-500 text-white py-16 px-6 lg:px-20">
-        <div className="text-center mb-12">
+      <section
+        className="relative bg-cover bg-center text-white py-16 px-6 lg:px-20"
+        style={{ backgroundImage: "url('/solar6.png')" }}
+      >
+        <div className="absolute inset-0 bg-black/50"></div> {/* Overlay */}
+
+        <div className="relative text-center mb-12">
           <p className="uppercase text-sm">What We Do</p>
-          <h2 className="text-3xl md:text-4xl font-extrabold">We Create Green Energy for Everyone</h2>
+          <h2 className="text-3xl md:text-4xl font-extrabold">
+            We Create Green Energy for Everyone
+          </h2>
         </div>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 ">
+
+        <div className="relative grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {orange.map((item, i) => (
-            <div key={i} className="p-8 text-center border border-white/40 rounded-lg">
-              <div>{item.icon}</div>
+            <div
+              key={i}
+              className="p-8 text-center border border-white/40 rounded-lg bg-white/10 backdrop-blur-sm"
+            >
+              <div className="text-orange-400 text-4xl mb-2">{item.icon}</div>
               <h3 className="mt-2 font-bold">{item.title}</h3>
             </div>
           ))}
         </div>
       </section>
+
 
       {/* ================= Steps Section ================= */}
       <section className="py-16 px-6 lg:px-20 grid lg:grid-cols-3 gap-12 items-center">
@@ -142,7 +154,7 @@ function Home() {
             <div key={i} className="flex gap-4 border-l-4 pl-4">{s.number} - {s.title}</div>
           ))}
         </div>
-        <img src="https://plus.unsplash.com/premium_photo-1664302342178-564b28c68d33?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Bio Energy" className="rounded-lg shadow-md" />
+        <img src="eman4.jpg" alt="Bio Energy" className="rounded-lg shadow-md" />
         <div>
           <h3 className="text-2xl font-bold mb-4">Alternatives for Renewable Energy</h3>
           <ul className="space-y-2">
@@ -159,8 +171,8 @@ function Home() {
           <button className="bg-orange-500 text-white px-8 py-3 rounded-md mt-6">VIEW ALL</button>
         </div>
         <div className="flex gap-6">
-          <img src="https://plus.unsplash.com/premium_photo-1681074963522-00ca908dce4e?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Client"
-            className="w-40 h-40 rounded-lg" />
+          {<img src="f5.jpg" alt="Client"
+            className="w-40 h-40 rounded-lg" />}
           <div>
             <div className="flex text-orange-500">
               {[...Array(5)].map((_, i) => <Star key={i} className="w-5 h-5 fill-orange-500" />)}

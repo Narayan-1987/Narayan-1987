@@ -13,10 +13,10 @@ export const logos = [
 
 // ================= Hero Slider Images =================
 export const images = [
-  "https://plus.unsplash.com/premium_photo-1663089781621-65b8476dbcbd?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  "https://images.unsplash.com/photo-1559302504-64aae6ca6b6d?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDMwfHx8ZW58MHx8fHx8",
-  "https://plus.unsplash.com/premium_photo-1664302342178-564b28c68d33?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  "/solar1.jpeg",
+  "eman1.jpg",
+  "eman2.jpg",
+  "eman3.jpg",
+  "solar1.jpg",
 ];
 
 // ================= Features Section =================
@@ -61,21 +61,21 @@ export const steps = [
 // ================= Blog Section =================
 export const hlast = [
   {
-    img: "https://plus.unsplash.com/premium_photo-1663089781621-65b8476dbcbd?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    img: "eman6.jpg",
     date: "Sept 20, 2025",
     category: "Renewable Energy",
     title: "How Solar Power is Transforming Urban Living",
     link: "#",
   },
   {
-    img: "https://plus.unsplash.com/premium_photo-1663089743898-aefbe7863763?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1pbi1zYW1lLXNlcmllc3wxfHx8ZW58MHx8fHx8",
+    img: "eman9.jpg",
     date: "Sept 15, 2025",
     category: "Sustainability",
     title: "Top 5 Ways to Reduce Your Carbon Footprint",
     link: "#",
   },
   {
-    img: "https://images.unsplash.com/photo-1660330589505-9a433a742a7b?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    img: "eman10.jpg",
     date: "Sept 10, 2025",
     category: "Technology",
     title: "AI in Renewable Energy: Future of Smart Grids",

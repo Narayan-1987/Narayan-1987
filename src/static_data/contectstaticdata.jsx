@@ -1,8 +1,8 @@
 const bannerData = {
     id: "about-us-banner",
     title: "contact us",
-    breadcrumb: ["Greenly", "contact us"],
-    image: "solar1.jpeg",
+    breadcrumb: ["NCL", "contact us"],
+     image: "solar6.png",
     overlay: {
         enabled: true,
         color: "black",

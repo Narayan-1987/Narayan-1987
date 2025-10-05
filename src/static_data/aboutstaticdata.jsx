@@ -2,8 +2,8 @@
 const bannerData = {
     id: "about-us-banner",
     title: "About Us",
-    breadcrumb: ["Greenly", "About Us"],
-    image: "solar1.jpeg",
+    breadcrumb: ["NCl", "About Us"],
+     image: "solar6.png",
     overlay: {
         enabled: true,
         color: "black",
@@ -16,7 +16,7 @@ const secondsection = {
     id: "sustainable-future",
     title: "We are Building a Sustainable Future",
     subtitle: "What We Do",
-    image: "man1.jpg",
+    image: "eman1.jpg",
     progress: [
         { title: "Solar Energy", value: 87 },
         { title: "Wind Energy", value: 71 },
@@ -36,7 +36,7 @@ const testimonialsData = {
             id: 1,
             name: "Mahfuz Riad",
             role: "CEO of Bata",
-            image: "man1.jpg",
+             image: "eman1.jpg",
             feedback:
                 "Cut down on all your work by collaborating with our Launch Pad team to get the framework of your online business up and running in no time.",
             rating: 5,
@@ -45,7 +45,7 @@ const testimonialsData = {
             id: 2,
             name: "Victoria Porter",
             role: "World-Famous Magician",
-            image: "man2.jpg",
+             image: "eman3.jpg",
             feedback:
                 "Cut down on all your work by collaborating with our Launch Pad team to get the framework of your online business up and running in no time.",
             rating: 5,
@@ -54,7 +54,7 @@ const testimonialsData = {
             id: 3,
             name: "John Carter",
             role: "Tech Entrepreneur",
-            image: "man3.jpg",
+            image: "eman4.jpg",
             feedback:
                 "Working with this team was a game changer for my startup. They helped me scale quickly and efficiently.",
             rating: 4,
@@ -63,10 +63,10 @@ const testimonialsData = {
 };
 // fifth Section============================================================================================
 const teamMembers = [
-    { id: 1, name: "pletus Perri", role: "CEO", img: "/team1.jpg" },
-    { id: 2, name: "Sarah Smith", role: "CTO", img: "/team2.jpg" },
-    { id: 3, name: "Robert Brown", role: "Manager", img: "/team3.jpg" },
-    { id: 4, name: "William Lee", role: "Advisor", img: "/team4.jpg" },
+    { id: 1, name: "pletus Perri", role: "CEO", img: "f1.jpg" },
+    { id: 2, name: "Sarah Smith", role: "CTO", img: "m2.jpg" },
+    { id: 3, name: "Robert Brown", role: "Manager", img: "m3.jpg" },
+    
 ];
 
 export { bannerData, secondsection, testimonialsData, teamMembers };

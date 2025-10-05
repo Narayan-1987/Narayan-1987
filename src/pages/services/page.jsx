@@ -9,35 +9,45 @@ export default function Services() {
   return (
     <div className="bg-gray-50">
       {/* ========================== HERO ========================== */}
-      <section className="relative bg-gradient-to-r from-orange-500 to-yellow-500 text-white py-20 px-6 md:px-16 flex flex-col md:flex-row items-center gap-10">
-        {/* Text */}
+      <section className="relative w-full h-[70vh] flex items-center justify-center bg-gray-900">
+        <motion.img
+          src={bannerData.image}
+          alt={bannerData.title}
+          className="absolute inset-0 w-full h-full object-cover opacity-90"
+          initial={{ scale: 1.2 }}
+          animate={{ scale: 1 }}
+          transition={{ duration: 2, ease: "easeOut" }}
+        />
+
+        {bannerData.overlay?.enabled && (
+          <motion.div
+            className="absolute inset-0"
+            style={{
+              backgroundColor: bannerData.overlay.color,
+              opacity: bannerData.overlay.opacity,
+            }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: bannerData.overlay.opacity }}
+            transition={{ duration: 1 }}
+          />
+        )}
+
         <motion.div
-          initial={{ x: -60, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          transition={{ duration: 0.8 }}
-          className="flex-1 space-y-6"
+          className="relative z-10 text-center text-white px-4"
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.5 }}
         >
-          <h1 className="text-4xl md:text-6xl font-extrabold leading-snug">
+          <h1 className="text-4xl md:text-6xl font-bold mb-4">
             {bannerData.title}
           </h1>
-          <p className="text-lg md:text-xl text-orange-100 max-w-lg">
-            {bannerData.breadcrumb[0]} › {bannerData.breadcrumb[1]}
+          <p className="text-lg md:text-xl">
+            <span className="text-green-400">{bannerData.breadcrumb[0]}</span>{" "}
+            <span className="mx-2">›</span> {bannerData.breadcrumb[1]}
           </p>
-          <button className="px-6 py-3 bg-white text-orange-600 font-semibold rounded-full hover:bg-gray-200 transition">
-            Get Started
-          </button>
         </motion.div>
-
-        {/* Image */}
-        <motion.img
-          initial={{ x: 60, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          transition={{ duration: 0.8 }}
-          src={bannerData.image}
-          alt="Services Banner"
-          className="flex-1 rounded-2xl shadow-lg object-cover h-80 md:h-[450px]"
-        />
       </section>
+
 
       {/* ========================== SERVICES GRID ========================== */}
       <section className="max-w-7xl mx-auto px-6 py-20">
@@ -80,7 +90,7 @@ export default function Services() {
             whileInView={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            src="https://plus.unsplash.com/premium_photo-1681074963522-00ca908dce4e?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+             src="f4.jpg"
             alt="Experience"
             className="w-full lg:w-1/2 rounded-2xl shadow-lg"
           />
@@ -144,7 +154,7 @@ export default function Services() {
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            src="https://plus.unsplash.com/premium_photo-1663089743898-aefbe7863763?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1pbi1zYW1lLXNlcmllc3wxfHx8ZW58MHx8fHx8"
+             src="eman5.jpg"
             alt="Services"
             className="w-full rounded-2xl shadow-lg"
           />

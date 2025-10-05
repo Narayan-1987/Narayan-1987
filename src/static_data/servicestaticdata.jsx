@@ -3,7 +3,7 @@ const bannerData = {
     id: "about-us-banner",
     title: "Technical Services",
     breadcrumb: ["Ncl Energy", "Services >", "Energy>", "Technical Services"],
-    image: "solar1.jpeg",
+    image: "solar6.png",
     overlay: {
         enabled: true,
         color: "black",

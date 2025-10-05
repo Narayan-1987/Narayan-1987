@@ -215,22 +215,26 @@ export default function AboutPage() {
       </section>
 
       {/*==================================================fourth Section =========================================================*/}
-      <section className="relative w-full bg-white">
+      <section className="relative w-full bg-white flex justify-center">
         <motion.div
-          className="w-[1300px] h-[400px] md:h-[500px] relative"
+          className="relative w-full max-w-[1300px] h-[400px] md:h-[500px] overflow-hidden rounded-lg"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
           variants={fadeUp}
         >
+          {/* Background Image */}
           <img
-            src="/man2.jpg"
+            src="eman2.jpg"
             alt="Solar Engineer"
             className="w-full h-full object-cover"
           />
 
-          {/* Content Box */}
-          <div className="absolute top-1/2 right-6 md:right-16 transform -translate-y-1/2 bg-gray-900 text-white p-6 md:p-10 max-w-md shadow-lg">
+          {/* Overlay for better readability */}
+          <div className="absolute inset-0 bg-black/40"></div>
+
+          {/* Content Box - Positioned Over Image (LEFT SIDE) */}
+          <div className="absolute top-1/2 left-6 md:left-16 transform -translate-y-1/2 bg-gray-900/90 text-white p-6 md:p-10 max-w-md shadow-lg rounded-lg backdrop-blur-sm">
             <p className="uppercase tracking-widest text-sm text-gray-400 mb-2">
               What We Do
             </p>
@@ -238,8 +242,8 @@ export default function AboutPage() {
               Fostering Growth <br /> of Solar Energy!
             </h2>
             <p className="text-gray-300 mb-6 text-sm md:text-base">
-              It amet consectetur adipiscing elit duis tristique. Nulla aliquet
-              enim tortor at. Eget nulla facilisi etiam sumitut est dignissim.
+              It amet consectetur adipiscing elit duis tristique. Nulla aliquet enim
+              tortor at. Eget nulla facilisi etiam sumitut est dignissim.
             </p>
             <button className="bg-orange-500 hover:bg-orange-600 text-white px-5 py-3 rounded font-semibold transition duration-300">
               View All
@@ -247,6 +251,7 @@ export default function AboutPage() {
           </div>
         </motion.div>
       </section>
+
 
       {/*==================================================fifth Section =========================================================*/}
       <section className="py-16 bg-white">
@@ -298,64 +303,21 @@ export default function AboutPage() {
       </section>
 
       {/* ============================================================ last Section ============================================================= */}
-      <section className="bg-gray-800 text-white py-16 px-6">
-        <motion.div
-          className="max-w-7xl mx-auto grid gap-12 lg:grid-cols-3 items-center"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={fadeUp}
-        >
-          {/* Left Heading */}
-          <div className="lg:col-span-1">
-            <h2 className="text-3xl md:text-4xl font-bold leading-snug">
-              Let's Build Something <br /> Great Together
-            </h2>
-          </div>
+      <footer className="bg-gray-800 text-white py-16 px-6 lg:px-20 grid lg:grid-cols-3 gap-12">
+        <div>
+          <h2 className="text-3xl font-bold">Let's Build Great Dreams Together</h2>
+        </div>
+        <div>
+          <p>📞 +1 8533921354</p>
+          <p>✉ narayanpachaury567@gmail.com</p>
+        </div>
+        <form className="flex items-center bg-gray-700 rounded-full overflow-hidden">
+          <input type="email" placeholder="Enter Your Email"
+            className="flex-1 px-4 py-3 bg-transparent text-gray-300" />
+          <button className="bg-white text-black px-6 py-3 rounded-full">Subscribe</button>
+        </form>
+      </footer>
 
-          {/* Contact Info */}
-          <div className="flex flex-col gap-6 lg:col-span-1">
-            <div>
-              <p className="uppercase text-sm text-gray-400 mb-1">Call Us</p>
-              <a
-                href="tel:+18556466242"
-                className="text-lg text-gray-300 hover:text-white"
-              >
-                +91 8533921354
-              </a>
-            </div>
-            <div>
-              <p className="uppercase text-sm text-gray-400 mb-1">Email Us</p>
-              <a
-                href="mailto:naraynpachaury567@gmail.com"
-                className="text-lg text-gray-300 hover:text-white"
-              >
-                naraynpachaury567@gmail.com
-              </a>
-            </div>
-          </div>
-
-          {/* Subscribe Form */}
-          <div className="lg:col-span-1">
-            <p className="uppercase text-sm text-gray-400 mb-3">
-              Subscribe to receive updates
-            </p>
-            <form className="flex items-center bg-gray-800 rounded-full overflow-hidden max-w-md">
-              <input
-                type="email"
-                placeholder="Enter Your Email"
-                className="flex-1 px-4 py-3 bg-transparent text-gray-300 focus:outline-none"
-              />
-              <button
-                type="submit"
-                className="bg-white text-black font-semibold px-6 py-3 rounded-full hover:bg-gray-200 transition"
-              >
-                Subscribe
-              </button>
-            </form>
-          </div>
-        </motion.div>
-      </section>
     </div>
   );
 }
