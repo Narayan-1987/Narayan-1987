@@ -13,7 +13,7 @@ const router = createBrowserRouter([
     element: <App />,
     children: [
       { index: true, element: <Home /> },
-      { path: "about", element: <About /> }, // You can rename to actual 'Pages' component if available
+      { path: "about", element: <About /> }, 
       { path: "services", element: <Services /> },
       { path: "project", element: <Project /> },
       { path: "blogs", element: <Blogs /> },
