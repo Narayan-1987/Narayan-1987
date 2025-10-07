@@ -161,21 +161,7 @@ export default function Services() {
         </div>
       </section>
 
-      {/* ========================== FOOTAR SECTION ========================== */}
-      <footer className="bg-gray-800 text-white py-16 px-6 lg:px-20 grid lg:grid-cols-3 gap-12">
-        <div>
-          <h2 className="text-3xl font-bold">Let's Build Great Dreams Together</h2>
-        </div>
-        <div>
-          <p>📞 +1 8533921354</p>
-          <p>✉ narayanpachaury567@gmail.com</p>
-        </div>
-        <form className="flex items-center bg-gray-700 rounded-full overflow-hidden">
-          <input type="email" placeholder="Enter Your Email"
-            className="flex-1 px-4 py-3 bg-transparent text-gray-300" />
-          <button className="bg-white text-black px-6 py-3 rounded-full">Subscribe</button>
-        </form>
-      </footer>
+      
     </div>
   );
 }
