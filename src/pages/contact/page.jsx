@@ -87,14 +87,13 @@ const Contact = () => {
       <section
         className="w-full flex justify-center items-center py-12 bg-cover bg-center bg-fixed"
         style={{
-          backgroundImage:
-            "url('solar2.jpg')",
+          backgroundImage: "url('solar2.jpg')",
         }}
       >
-        <div className="flex flex-col md:flex-row w-full max-w-6xl shadow-lg rounded-lg overflow-hidden bg-white/90 backdrop-blur-md">
+        <div className="flex flex-col md:flex-row w-full max-w-6xl shadow-lg rounded-lg overflow-hidden bg-white/30 backdrop-blur-md">
           {/* Left Side */}
           <motion.div
-            className="bg-orange-500 text-white w-full md:w-1/3 p-8 flex flex-col justify-between"
+            className="bg-transparent text-white w-full md:w-1/3 p-8 flex flex-col justify-between"
             initial={{ x: -100, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 1 }}
@@ -142,7 +141,7 @@ const Contact = () => {
 
           {/* Right Side */}
           <motion.div
-            className="w-full md:w-2/3 bg-white p-8"
+            className="w-full md:w-2/3 bg-transparent p-8 bg-opacity-60"
             initial={{ x: 100, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 1 }}
@@ -187,7 +186,8 @@ const Contact = () => {
       </section>
 
 
-     
+
+
     </>
   );
 };

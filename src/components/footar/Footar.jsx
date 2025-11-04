@@ -49,7 +49,7 @@ export default function Footer() {
           <ul className="space-y-3 text-sm">
             <li className="flex items-center space-x-2">
               <FaEnvelope className="text-green-500" />
-              <span>support@teacircle.com</span>
+              <span>narayan.com</span>
             </li>
             <li className="flex items-center space-x-2">
               <FaPhoneAlt className="text-green-500" />
